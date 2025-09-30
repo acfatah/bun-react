@@ -1,69 +1,56 @@
-# React + TypeScript + Vite
+<div align="center">
+  <a href="https://bun.sh"
+    ><img width="80" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/bun_js.png" alt="Bun.js" title="Bun.js"/></a>
+  <a href="https://www.typescriptlang.org"
+    ><img width="80" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/typescript.png" alt="TypeScript" title="TypeScript"/></a>
+  <a href="https://react.dev"
+    ><img width="80" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" alt="react.dev" title="React"/></a>
+  <a href="https://tailwindcss.com/"
+    ><img width="80" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/tailwind_css.png" alt="Tailwind CSS" title="Tailwind CSS"/></a>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <h1>Bun + TypeScript + React + Tailwind CSS</h1>
 
-Currently, two official plugins are available:
+  <p class="flex gap-1">
+    <a href="https://github.com/acfatah/bun-react/commits/main">
+      <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/t/acfatah/bun-react?style=flat-square"
+    ></a>
+    <img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/acfatah/bun-react?display_timestamp=committer&style=flat-square">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/acfatah/bun-react?style=flat-square">
+  </p>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+`Bun`, `TypeScript` and `React` template with `Tailwind CSS` pre-configured.
 
-## Expanding the ESLint configuration
+> [!IMPORTANT]
+> Work in progress!
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Starter Template
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+`mkdir` your project name, `cd` to it then run,
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+bunx --bun tiged acfatah/bun-react/templates/starter && bun update
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Post-install Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+By default, `bun` will block all post-install scripts. Current notable packages that require post-install scripts are:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `@swc/core` React Speedy Web Compiler
+- `@tailwindcss/oxide` used by Tailwind
+
+To list them, run
+
+```bash
+bun pm untrusted
 ```
+
+To execute them, run
+
+```bash
+bun pm trust --all
+```
+
+or specify the package name one by one.

@@ -1,32 +1,42 @@
 {
-  "name": "react-swc",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "name": "bun-react",
+  "description": "Boilerplate for creating a TypeScript React application with Bun.",
+  "author": {
+    "name": "Achmad F. Ibrahim",
+    "email": "acfatah@gmail.com"
   },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.13",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.13"
+  "workspaces": [
+    "templates/*"
+  ],
+  "scripts": {
+    "update:all": "bun scripts/update-all.ts",
+    "copy-common-to-templates": "bun scripts/copy-common-to-templates.ts",
+    "lint": "bunx --bun eslint",
+    "lint:changed": "{ git diff --name-only -z --diff-filter=d --relative HEAD; git ls-files -z --others --exclude-standard -- ':./'; } | xargs -0 -r bunx --bun eslint --pass-on-no-patterns --no-warn-ignored",
+    "lint:staged": "bunx --bun eslint --pass-on-no-patterns --no-warn-ignored $(git diff --relative --cached --name-only --diff-filter=d)",
+    "lint:inspect": "bunx --bun eslint --inspect-config",
+    "format": "bunx --bun eslint --fix",
+    "format:changed": "{ git diff --name-only -z --diff-filter=d --relative HEAD; git ls-files -z --others --exclude-standard -- ':./'; } | xargs -0 -r bunx --bun eslint --fix --no-warn-ignored",
+    "format:staged": "staged_files=$(git diff --relative --cached --name-only --diff-filter=d); bunx --bun eslint --fix --pass-on-no-patterns --no-warn-ignored $staged_files && git add $staged_files",
+    "typecheck": "bun scripts/typecheck-all.ts",
+    "typecheck:tsgo": "bun scripts/typecheck-all.ts --tsgo",
+    "precommit": "bun run lint:staged"
+  },
+  "peerDependencies": {
+    "@typescript/native-preview": "^7.0.0-dev.20250930.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
-    "@types/node": "^24.6.0",
-    "@types/react": "^19.1.16",
-    "@types/react-dom": "^19.1.9",
-    "@vitejs/plugin-react-swc": "^4.1.0",
+    "@antfu/eslint-config": "^5.4.1",
+    "@types/bun": "^1.2.23",
+    "@types/common-tags": "^1.8.4",
+    "bun-plugin-dts": "^0.3.0",
+    "common-tags": "^1.8.2",
     "eslint": "^9.36.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.22",
-    "globals": "^16.4.0",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.45.0",
-    "vite": "^7.1.7"
+    "eslint-plugin-format": "^1.0.2",
+    "jiti": "^2.6.0",
+    "simple-git-hooks": "^2.13.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun precommit"
   }
 }
