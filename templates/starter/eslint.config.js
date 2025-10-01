@@ -19,5 +19,11 @@ export default tseslint.config([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    settings: {
+      // https://github.com/schoero/eslint-plugin-better-tailwindcss
+      'better-tailwindcss': {
+        entryPoint: 'src/styles/global.css',
+      },
+    },
   },
 ])
