@@ -27,3 +27,4 @@ dist-ssr
 
 # Template files
 templates/*/bun.lock
+templates/*/.next

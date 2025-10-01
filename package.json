@@ -11,13 +11,9 @@
   "scripts": {
     "update:all": "bun scripts/update-all.ts",
     "copy-common-to-templates": "bun scripts/copy-common-to-templates.ts",
-    "lint": "bunx --bun eslint",
-    "lint:changed": "{ git diff --name-only -z --diff-filter=d --relative HEAD; git ls-files -z --others --exclude-standard -- ':./'; } | xargs -0 -r bunx --bun eslint --pass-on-no-patterns --no-warn-ignored",
-    "lint:staged": "bunx --bun eslint --pass-on-no-patterns --no-warn-ignored $(git diff --relative --cached --name-only --diff-filter=d)",
-    "lint:inspect": "bunx --bun eslint --inspect-config",
-    "format": "bunx --bun eslint --fix",
-    "format:changed": "{ git diff --name-only -z --diff-filter=d --relative HEAD; git ls-files -z --others --exclude-standard -- ':./'; } | xargs -0 -r bunx --bun eslint --fix --no-warn-ignored",
-    "format:staged": "staged_files=$(git diff --relative --cached --name-only --diff-filter=d); bunx --bun eslint --fix --pass-on-no-patterns --no-warn-ignored $staged_files && git add $staged_files",
+    "lint": "bun scripts/lint-all.ts",
+    "lint:staged": "bun scripts/lint-all.ts --staged",
+    "format": "bun scripts/lint-all.ts --format",
     "typecheck": "bun scripts/typecheck-all.ts",
     "typecheck:tsgo": "bun scripts/typecheck-all.ts --tsgo",
     "precommit": "bun run lint:staged"
@@ -26,19 +22,10 @@
     "@typescript/native-preview": "^7.0.0-dev.20250930.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.4.1",
-    "@eslint-react/eslint-plugin": "^2.0.4",
     "@types/bun": "^1.2.23",
     "@types/common-tags": "^1.8.4",
-    "@typescript-eslint/eslint-plugin": "^8.45.0",
-    "@typescript-eslint/parser": "^8.45.0",
     "bun-plugin-dts": "^0.3.0",
     "common-tags": "^1.8.2",
-    "eslint": "^9.36.0",
-    "eslint-plugin-format": "^1.0.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.22",
     "jiti": "^2.6.0",
     "simple-git-hooks": "^2.13.1"
   },
