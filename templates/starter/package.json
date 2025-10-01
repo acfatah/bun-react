@@ -1,8 +1,8 @@
 {
   "name": "react-swc",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "bunx --bun vite",
     "build": "bunx --bun tsc -b && bunx --bun vite build",
@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react-swc": "^4.1.0",
     "eslint": "^9.36.0",
     "eslint-plugin-better-tailwindcss": "^3.7.9",

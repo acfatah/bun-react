@@ -4,11 +4,9 @@ import './styles/global.css'
 import App from './App.tsx'
 
 const rootEl = document.getElementById('root')!
-rootEl.style.margin = '0'
-rootEl.style.padding = '0'
 
 createRoot(rootEl).render(
-	<StrictMode>
-		<App />
-	</StrictMode>,
+  <StrictMode>
+    <App />
+  </StrictMode>,
 )

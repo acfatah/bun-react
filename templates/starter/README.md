@@ -1,6 +1,14 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with HMR, some ESLint rules, Tailwind CSS, and React Router.
+
+## Features
+
+- ⚡️ [Vite](https://vite.dev/) - Fast build tool
+- ⚛️ [React 19](https://react.dev/) - Latest React version
+- 🔷 [TypeScript](https://www.typescriptlang.org/) - Type safety
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- 🚦 [React Router](https://reactrouter.com/) - Client-side routing
 
 Currently, two official plugins are available:
 
@@ -43,8 +51,8 @@ You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-re
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
+import reactX from 'eslint-plugin-react-x'
 
 export default tseslint.config([
   globalIgnores(['dist']),
