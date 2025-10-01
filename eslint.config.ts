@@ -10,6 +10,15 @@ export default antfu(
     rules: {
       'no-console': 'off',
 
+      // FIXME: Temporary disable these rules
+      // Antfu's config injects React rules referencing the plugin name 'react'
+      // which maps to @eslint-react packages rather than the classic 'eslint-plugin-react'.
+      // That caused ESLint to look for 'react/no-comment-textnodes' in the classic
+      // plugin but Antfu expects @eslint-react.
+      'react/no-comment-textnodes': 'off',
+      'react-hooks-extra/no-unnecessary-use-prefix': 'off',
+      'react-hooks-extra/prefer-use-state-lazy-initialization': 'off',
+
       // https://perfectionist.dev/rules/sort-imports.html
       'sort-imports': 'off',
       'perfectionist/sort-imports': [
