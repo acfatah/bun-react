@@ -38,5 +38,13 @@
   },
   "simple-git-hooks": {
     "pre-commit": "bun precommit"
-  }
+  },
+  "trustedDependencies": [
+    "@swc/core",
+    "@tailwindcss/oxide",
+    "esbuild",
+    "sharp",
+    "simple-git-hooks",
+    "unrs-resolver"
+  ]
 }
