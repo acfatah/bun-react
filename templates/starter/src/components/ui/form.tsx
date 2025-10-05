@@ -39,8 +39,10 @@ function FormField<
 >({
   ...props
 }: ControllerProps<TFieldValues, TName>) {
+  const value = React.useMemo(() => ({ name: props.name as any }), [props.name])
+
   return (
-    <FormFieldContext value={{ name: props.name as any }}>
+    <FormFieldContext value={value}>
       <Controller {...props} />
     </FormFieldContext>
   )
@@ -145,4 +147,4 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
   )
 }
 
-export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, useFormField }
+export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage }
