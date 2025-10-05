@@ -1,13 +1,13 @@
 {
   "name": "bun-react-template",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.tsx",
     "start": "NODE_ENV=production bun src/index.tsx",
     "build": "bun run build.ts",
-        "lint": "bunx --bun eslint",
+    "lint": "bunx --bun eslint",
     "lint:staged": "bunx --bun eslint --pass-on-no-patterns --no-warn-ignored $(git diff --cached --name-only --diff-filter=d)",
     "lint:fix": "bunx --bun eslint --fix",
     "lint:fix-staged": "bunx --bun eslint --fix --pass-on-no-patterns --no-warn-ignored $(git diff --cached --name-only --diff-filter=d)",
